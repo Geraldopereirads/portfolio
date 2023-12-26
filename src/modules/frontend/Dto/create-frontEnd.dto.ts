@@ -1,4 +1,4 @@
-import { IsString } from "class-validator"
+import { IsOptional, IsString } from "class-validator"
 
 export class createFrontEndDto {
 
@@ -6,10 +6,11 @@ export class createFrontEndDto {
   title: string
 
   @IsString()
-  img: string
+  @IsOptional()
+  img: string | null
 
   @IsString()
-  urlVercel: string
+  url: string
 
   @IsString()
   github: string

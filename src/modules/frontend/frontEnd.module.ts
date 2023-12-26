@@ -2,14 +2,15 @@ import { Module } from '@nestjs/common';
 import { FrontEndService } from './frontEnd.service';
 import { FrontEndController } from './frontEnd.controller';
 import { FrontEndRepository } from './repositories/frontEnd.repository';
-import { FrontEndInMemoryRepository } from './in-memorey/frontEnd.in-memory.repository';
+import { frontEndPrismaRepository } from './prisma/frontEnd-prisma.repository';
+import { PrismaService } from '../database/prisma.service';
 
 @Module({
   controllers: [FrontEndController],
-  providers: [FrontEndService,
+  providers: [FrontEndService, PrismaService,
     {
       provide: FrontEndRepository,
-      useClass: FrontEndInMemoryRepository
+      useClass: frontEndPrismaRepository
     }
   ],
 })

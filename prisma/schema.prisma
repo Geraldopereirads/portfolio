@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model FrontEnd {
+  id     String  @id
+  title  String  @unique
+  img    String?
+  url    String
+  github String
+
+  @@map("frontEnd")
+}
+
+model BackEnd {
+  id     String  @id
+  title  String  @unique
+  img    String?
+  url    String
+  github String
+
+  @@map("backend")
+}
+
+model FullStack {
+  id     String  @id
+  title  String  @unique
+  img    String?
+  url    String
+  github String
+
+  @@map("fullstack")
+}
+
+model WordPress {
+  id     String  @id
+  title  String  @unique
+  img    String?
+  url    String
+  github String
+
+  @@map("wordpress")
+}
+
+model Project {
+  id     String  @id
+  title  String  @unique
+  img    String?
+  url    String
+  github String
+
+  @@map("projects")
+}
