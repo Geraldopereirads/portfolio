@@ -5,30 +5,30 @@ import { UpdateFullstackDto } from './dto/update-fullstack.dto';
 
 @Controller('fullstack')
 export class FullstackController {
-  constructor(private readonly fullstackService: FullstackService) {}
+  constructor(private readonly fullstackService: FullstackService) { }
 
-  @Post()
+  @Post("")
   create(@Body() createFullstackDto: CreateFullstackDto) {
     return this.fullstackService.create(createFullstackDto);
   }
 
   @Get()
-  findAll() {
-    return this.fullstackService.findAll();
+  find() {
+    return this.fullstackService.find();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.fullstackService.findOne(+id);
+    return this.fullstackService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateFullstackDto: UpdateFullstackDto) {
-    return this.fullstackService.update(+id, updateFullstackDto);
+    return this.fullstackService.update(updateFullstackDto, id);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.fullstackService.remove(+id);
+    return this.fullstackService.remove(id);
   }
 }
