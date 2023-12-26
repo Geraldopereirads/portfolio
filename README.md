@@ -1,7 +1,7 @@
 ## Installation
 
 ```bash
-$ npm install
+ npm install
 ```
 
 ## Running the app
@@ -10,15 +10,15 @@ $ npm install
 # development
 
 ```bash
-$ npm run start
+ npm run start
 ```
 
 # watch mode
 ```bash
-$ npm run start:dev
+ npm run start:dev
 ```
 
 # production mode
 ```bash
-$ npm run start:prod
+ npm run start:prod
 ```
