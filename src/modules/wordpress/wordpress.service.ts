@@ -1,26 +1,44 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateWordpressDto } from './dto/create-wordpress.dto';
 import { UpdateWordpressDto } from './dto/update-wordpress.dto';
+import { WordpressRepository } from './repositories/wordPress.repository';
 
 @Injectable()
 export class WordpressService {
-  create(createWordpressDto: CreateWordpressDto) {
-    return 'This action adds a new wordpress';
+  constructor(private wordPressRepository: WordpressRepository) { }
+  async create(createWordpressDto: CreateWordpressDto) {
+    const findWordPress = await this.wordPressRepository.findByTitle(createWordpressDto.title)
+
+    if (findWordPress) throw new ConflictException("Word-Press already exists")
+
+    const wordpress = await this.wordPressRepository.create(createWordpressDto)
+
+    return wordpress
   }
 
-  findAll() {
-    return `This action returns all wordpress`;
+  async find() {
+    const wordpress = await this.wordPressRepository.findAll()
+
+    return wordpress
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} wordpress`;
+  async findOne(id: string) {
+    const wordpress = await this.wordPressRepository.findOne(id)
+
+    if (!wordpress) throw new NotFoundException("Word-Press not found !")
+
+    return wordpress
   }
 
-  update(id: number, updateWordpressDto: UpdateWordpressDto) {
-    return `This action updates a #${id} wordpress`;
+  async update(id: string, data: UpdateWordpressDto) {
+    const wordPress = this.wordPressRepository.update(data, id)
+
+    if (!wordPress) throw new NotFoundException("Word-Press not found !")
+
+    return wordPress
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} wordpress`;
+  async remove(id: string) {
+    await this.wordPressRepository.remove(id)
   }
 }
