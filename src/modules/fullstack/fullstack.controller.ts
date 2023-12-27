@@ -28,7 +28,6 @@ export class FullstackController {
   @Get(':id')
   findOne(@Param('id') id: string) {
 
-    console.log(this.fullstackService.findOne(id))
     return this.fullstackService.findOne(id);
   }
 

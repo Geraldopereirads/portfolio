@@ -62,7 +62,6 @@ export class FrontEndService {
     });
 
     const findImage = await this.frontEndRepository.findOne(id);
-    console.log(findImage)
 
     if (!findImage) throw new NotFoundException('Image not found');
 

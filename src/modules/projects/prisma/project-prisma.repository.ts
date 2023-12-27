@@ -47,7 +47,7 @@ export class projectPrismarepository implements ProjectsRepository {
             data: { ...data }
         })
 
-        return plainToInstance(Project, project)
+        return project
     }
     async remove(id: string): Promise<void> {
         await this.prisma.project.delete({
