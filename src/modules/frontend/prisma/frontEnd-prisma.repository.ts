@@ -20,17 +20,23 @@ export class frontEndPrismaRepository implements FrontEndRepository {
         return plainToInstance(FrontEnd, newFrontEnd)
 
     }
+
+
     async findAll(): Promise<FrontEnd[]> {
         const fronts = await this.prisma.frontEnd.findMany();
-        return plainToInstance(FrontEnd, fronts)
+        return fronts
     }
+
+
     async findByTitle(title: string): Promise<FrontEnd> {
         const front = await this.prisma.frontEnd.findUnique({
             where: { title }
         })
 
-        return plainToInstance(FrontEnd, front)
+        return front
     }
+
+
     async findOne(id: string): Promise<FrontEnd> {
         const front = await this.prisma.frontEnd.findUnique({
             where: { id }
@@ -38,6 +44,8 @@ export class frontEndPrismaRepository implements FrontEndRepository {
 
         return plainToInstance(FrontEnd, front)
     }
+
+
     async update(data: UpdateFrontEndDto, id: string): Promise<FrontEnd> {
         const front = await this.prisma.frontEnd.update({
             where: { id },
@@ -46,6 +54,8 @@ export class frontEndPrismaRepository implements FrontEndRepository {
 
         return plainToInstance(FrontEnd, front)
     }
+
+
     async remove(id: string): Promise<void> {
         await this.prisma.frontEnd.delete({
             where: { id }

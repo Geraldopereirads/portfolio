@@ -2,7 +2,9 @@ import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from '@ne
 import { FrontEndService } from './frontEnd.service';
 import { createFrontEndDto } from './Dto/create-frontEnd.dto';
 import { UpdateFrontEndDto } from './Dto/update-frontEnd.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Front-End")
 @Controller('frontEnd')
 export class FrontEndController {
   constructor(private readonly frontEndService: FrontEndService) { }
@@ -20,6 +22,7 @@ export class FrontEndController {
   findOne(@Param("id") id: string) {
     return this.frontEndService.findOne(id)
   }
+
 
   @Patch(":id")
   update(@Param("id") id: string, @Body() updateFrontEnd: UpdateFrontEndDto) {

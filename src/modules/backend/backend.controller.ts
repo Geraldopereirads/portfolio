@@ -2,7 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@ne
 import { BackendService } from './backend.service';
 import { CreateBackendDto } from './dto/create-backend.dto';
 import { UpdateBackendDto } from './dto/update-backend.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags("Back-End")
 @Controller('backend')
 export class BackendController {
   constructor(private readonly backendService: BackendService) { }

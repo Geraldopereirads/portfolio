@@ -11,7 +11,7 @@ import { PrismaService } from '../database/prisma.service';
     {
       provide: FrontEndRepository,
       useClass: frontEndPrismaRepository
-    }
+    },
   ],
 })
 export class FrontEndModule { }

@@ -2,7 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@ne
 import { WordpressService } from './wordpress.service';
 import { CreateWordpressDto } from './dto/create-wordpress.dto';
 import { UpdateWordpressDto } from './dto/update-wordpress.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags("WordPress")
 @Controller('wordpress')
 export class WordpressController {
   constructor(private readonly wordpressService: WordpressService) { }

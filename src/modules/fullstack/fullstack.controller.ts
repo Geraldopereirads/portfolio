@@ -2,7 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { FullstackService } from './fullstack.service';
 import { CreateFullstackDto } from './dto/create-fullstack.dto';
 import { UpdateFullstackDto } from './dto/update-fullstack.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags("Full-Stack")
 @Controller('fullstack')
 export class FullstackController {
   constructor(private readonly fullstackService: FullstackService) { }

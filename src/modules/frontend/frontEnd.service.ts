@@ -31,6 +31,15 @@ export class FrontEndService {
     return frontEnd
   }
 
+  async findByTitle(title: string) {
+    const frontEnd = await this.frontEndRepository.findOne(title)
+
+    if (!frontEnd) throw new NotFoundException("Title not found !")
+    console.log(frontEnd)
+
+    return frontEnd
+  }
+
 
   async update(data: UpdateFrontEndDto, id: string) {
     const frontEnd = this.frontEndRepository.update(data, id)
