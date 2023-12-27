@@ -1,8 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@nestjs/common';
+import {
+  UploadedFiles,
+  UseInterceptors,
+  Controller, Get, Post, Body, Patch, Param, Delete, HttpCode
+} from '@nestjs/common';
 import { BackendService } from './backend.service';
 import { CreateBackendDto } from './dto/create-backend.dto';
 import { UpdateBackendDto } from './dto/update-backend.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
 
 
 @ApiTags("Back-End")
@@ -29,6 +34,21 @@ export class BackendController {
   update(@Param('id') id: string, @Body() updateBackend: UpdateBackendDto) {
     return this.backendService.update(updateBackend, id);
   }
+
+  @Patch('upload/:id')
+  @UseInterceptors(FileFieldsInterceptor([{ name: 'img', maxCount: 1 }]))
+  upload(
+    @UploadedFiles()
+    files: {
+      img?: Express.Multer.File;
+    },
+    @Param('id') id: string,
+  ) {
+    const { img } = files;
+    return this.backendService.upload(img[0], id)
+  }
+
+
 
   @HttpCode(204)
   @Delete(':id')

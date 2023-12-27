@@ -1,4 +1,10 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { unlink } from 'node:fs';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { v2 as cloudinary } from 'cloudinary';
 import { CreateFullstackDto } from './dto/create-fullstack.dto';
 import { UpdateFullstackDto } from './dto/update-fullstack.dto';
 import { FullStackRepository } from './repositories/fullStack.repository';
@@ -35,6 +41,41 @@ export class FullstackService {
 
     return fullStack
   }
+
+  async upload(img?: Express.Multer.File, id?: string) {
+    cloudinary.config({
+      cloud_name: process.env.CLOUD_NAME,
+      api_key: process.env.API_KEY,
+      api_secret: process.env.API_SECRET,
+    });
+
+    const findImage = await this.fullStackRepository.findOne(id);
+
+    console.log(findImage)
+
+    if (!findImage) throw new NotFoundException('Image not found');
+
+    const uploadImage = await cloudinary.uploader.upload(
+      img.path,
+      { resource_type: 'image' },
+      (error, result) => result,
+    );
+
+    const updateImage = await this.fullStackRepository.update(
+      {
+        img: uploadImage.secure_url,
+      },
+      id,
+    );
+
+    unlink(img.path, (error) => {
+      if (error) console.log(error);
+    });
+
+    return updateImage;
+  }
+
+
 
   async remove(id: string) {
     await this.fullStackRepository.remove(id)

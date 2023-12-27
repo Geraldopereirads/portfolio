@@ -1,25 +1,25 @@
-import { ApiProperty } from "@nestjs/swagger"
-import { IsOptional, IsString } from "class-validator"
+/* eslint-disable prettier/prettier */
+import { ApiProperty } from '@nestjs/swagger';
+import { IsOptional, IsString } from 'class-validator';
 
 export class createFrontEndDto {
-
   @ApiProperty({
-    description: "Projetos Front-End",
+    description: 'Projetos Front-End',
     type: String,
   })
   @IsString()
-  title: string
+  title: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  img: string | null
+  img: string | null;
 
   @ApiProperty()
   @IsString()
-  url: string
+  url: string;
 
   @ApiProperty()
   @IsString()
-  github: string
+  github: string;
 }

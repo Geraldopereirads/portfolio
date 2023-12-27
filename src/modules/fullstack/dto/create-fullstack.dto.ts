@@ -8,8 +8,6 @@ export class CreateFullstackDto {
         description: "Projetos Full-Stack",
         type: String,
     })
-
-    @ApiProperty()
     @IsString()
     title: string
 

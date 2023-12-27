@@ -32,7 +32,7 @@ export class fullStackPrismaRepository implements FullStackRepository {
         return plainToInstance(Fullstack, fullstacks)
     }
     async findOne(id: string): Promise<Fullstack> {
-        const fullstacks = await this.prisma.frontEnd.findUnique({
+        const fullstacks = await this.prisma.fullStack.findUnique({
             where: { id }
         })
 
@@ -44,7 +44,9 @@ export class fullStackPrismaRepository implements FullStackRepository {
             data: { ...data }
         })
 
-        return plainToInstance(Fullstack, fullstacks)
+        console.log(fullstacks)
+
+        return fullstacks
     }
     async remove(id: string): Promise<void> {
         await this.prisma.fullStack.delete({

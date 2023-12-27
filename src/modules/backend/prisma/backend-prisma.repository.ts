@@ -44,7 +44,7 @@ export class backEndPrismaRepository implements BackEndRepository {
             data: { ...data }
         })
 
-        return plainToInstance(Backend, back)
+        return back
     }
     async remove(id: string): Promise<void> {
         await this.prisma.backEnd.delete({
