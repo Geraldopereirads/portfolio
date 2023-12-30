@@ -12,6 +12,10 @@ const config: Config = {
         primary: '#D6CD2A',
         dark: '#1B1B1B',
         light: '#DAD7CE',
+      },
+      backgroundImage: {
+        'background-dark': "url('./src/assets/img/background/backgroundDark.svg')",
+        'background-light': "url('./src/assets/img/background/backgroundLight.svg')",
       }
     },
   },

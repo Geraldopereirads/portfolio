@@ -3,4 +3,8 @@
 @tailwind utilities;
 
 
-@layer components {}
+@layer components {
+    .body {
+        @apply text-gray-100
+    }
+}
