@@ -1,31 +1,12 @@
-# Installation
+# First, run portfólio Full-Stack:
+
+
+## Clone this repository
 
 ```bash
- npm install
+git@github.com:Geraldopereirads/portfolio.git
 ```
 
-### Running the app
+### Para acessar o (front-end), por favor, consulte o arquivo README.MD localizado na pasta denominada "front-end".
 
-```bash
- npm run start
-```
-
-### watch mode
-```bash
- npm run start:dev
-```
-
-### production mode
-```bash
- npm run start:prod
-```
-
-### URL documentation
-```bash
- https://portfolio-backend-aw9w.onrender.com/api
-```
-
-### URL deploy Render
-```bash
-https://portfolio-backend-aw9w.onrender.com
-```
+### Para acessar a parte do servidor (back-end), utilize o README.MD na pasta correspondente, chamada "back-end".
