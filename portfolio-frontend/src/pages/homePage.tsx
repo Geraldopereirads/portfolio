@@ -1,7 +1,8 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import devFrontEnd from "../assets/img/homePage/dev.svg";
 
-export const homePage: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <main>
       <div>
@@ -12,7 +13,7 @@ export const homePage: NextPage = () => {
         <button>Saiba mais sobre mim</button>
       </div>
       <Image
-        src="../assets/img/homePage/dev.svg"
+        src={devFrontEnd}
         width={500}
         height={500}
         alt="Picture of the author"
@@ -20,3 +21,5 @@ export const homePage: NextPage = () => {
     </main>
   );
 };
+
+export default HomePage;
