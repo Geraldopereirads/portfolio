@@ -8,4 +8,4 @@ export const FullSktacSchema = z.object({
   github: z.string(),
 });
 
-export type FullSktacData = z.infer<typeof FullSktacSchema>;
+export type FullStackData = z.infer<typeof FullSktacSchema>;
