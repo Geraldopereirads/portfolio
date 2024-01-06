@@ -5,8 +5,8 @@ import { MdOutlineDarkMode } from "react-icons/md";
 
 const Header = () => {
   return (
-    <header>
-      <nav>
+    <header className="flex flex-row align-center justify-between bg-header text-gray-100 h-[4.5rem]">
+      <nav className="flex gap-2.5">
         <a href="">Home</a>
         <a href="">About</a>
         <a href="">Portfolio</a>
@@ -14,7 +14,7 @@ const Header = () => {
         <a href="">Contact</a>
       </nav>
 
-      <div>
+      <section className="flex  flex-row  align-center gap-2.5">
         <a href="" title="WhatsApp">
           <BsWhatsapp size={25} />
         </a>
@@ -30,7 +30,7 @@ const Header = () => {
         <a href="">
           <MdOutlineDarkMode size={25} />
         </a>
-      </div>
+      </section>
     </header>
   );
 };

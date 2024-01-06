@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { } from "./src/assets/img/background/backgroundDark.svg";
 
 const config: Config = {
   content: [
@@ -10,12 +11,15 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#D6CD2A',
-        dark: '#1B1B1B',
-        light: '#DAD7CE',
+        header: '#1B1B1B',
+        textD: '#050505',
+        textL: '#DAD7CE',
       },
-      backgroundImage: {
-        'background-dark': "url('./src/assets/img/background/backgroundDark.svg')",
-        'background-light': "url('./src/assets/img/background/backgroundLight.svg')",
+      height: {
+        'h-17': '4.5rem',
+      },
+      margin: {
+        'm-0-auto': '0 auto',
       }
     },
   },

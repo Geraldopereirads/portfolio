@@ -4,8 +4,9 @@
 
 
 @layer components {
-    .body {
-        @apply text-gray-100 bg-gradient-to-b from-primary from-5% to-dark to-70%
+    .container {
+        @apply m-0-auto
     }
+
 
 }
