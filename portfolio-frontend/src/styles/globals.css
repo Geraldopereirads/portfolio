@@ -8,5 +8,16 @@
         @apply m-0-auto
     }
 
+    .textHeader {
+        @apply text-gray-100 font-black
+    }
+
+    .text {
+        @apply text-gray-100
+    }
+
+    .hover {
+        @apply hover:text-primary transition duration-300
+    }
 
 }

@@ -1,10 +1,15 @@
 import Header from "@/components/header/header";
-import fullstackDeveloper from "../assets/img/homePage/dev.svg";
+import { Roboto } from "next/font/google";
 import Image from "next/image";
+import fullstackDeveloper from "../assets/img/homePage/dev.svg";
 
+const mainFontFamily = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+});
 export default function Home() {
   return (
-    <>
+    <body className={mainFontFamily.className}>
       <Header />
       <main className="bg-[url('../assets/img/background/backgroundDark.svg')] flex flex-row align-center justify-between min-h-screen text-gray-100">
         <div>
@@ -25,6 +30,6 @@ export default function Home() {
           height={200}
         />
       </main>
-    </>
+    </body>
   );
 }

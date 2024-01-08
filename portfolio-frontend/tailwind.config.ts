@@ -18,9 +18,6 @@ const config: Config = {
       height: {
         'h-17': '4.5rem',
       },
-      margin: {
-        'm-0-auto': '0 auto',
-      }
     },
   },
   plugins: [],
