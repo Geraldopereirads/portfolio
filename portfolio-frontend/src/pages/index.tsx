@@ -9,7 +9,7 @@ const mainFontFamily = Roboto({
 });
 export default function Home() {
   return (
-    <body className={mainFontFamily.className}>
+    <>
       <Header />
       <main className="bg-[url('../assets/img/background/backgroundDark.svg')] flex flex-row align-center justify-between min-h-screen text-gray-100">
         <div>
@@ -30,6 +30,6 @@ export default function Home() {
           height={200}
         />
       </main>
-    </body>
+    </>
   );
 }

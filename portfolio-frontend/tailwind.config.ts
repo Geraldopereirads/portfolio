@@ -15,11 +15,16 @@ const config: Config = {
         textD: '#050505',
         textL: '#DAD7CE',
       },
+      gradientColorStops: {
+        'custom': '34deg, rgba(214, 205, 42, 0.95) 0%, rgba(27, 27, 27, 0.95) 55%'
+      },
       height: {
         'h-17': '4.5rem',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-gradients')
+  ],
 }
 export default config

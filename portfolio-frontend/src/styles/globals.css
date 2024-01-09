@@ -4,9 +4,6 @@
 
 
 @layer components {
-    .container {
-        @apply m-0-auto
-    }
 
     .textHeader {
         @apply text-gray-100 font-black
